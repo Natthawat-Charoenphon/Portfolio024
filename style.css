@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-/* พื้นหลังของเว็บ */
+/* bc */
 body {
     background: hsl(213, 96%, 70%);
     color: #111;
     font-family: 'Poppins', sans-serif;
 }
 
-/* ================= Navbar ================= */
+
 .navbar {
     width: 100%;
     padding: 20px 80px;
@@ -20,7 +20,8 @@ body {
     align-items: center;
     background: #0c57c1;              
     box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
-    border-radius: 0 0 20px 20px;      
+    border-radius: 0 0 20px 20px;  
+    font-size: 25px;    
 }
 
 html {
@@ -29,7 +30,7 @@ html {
 
 
 .logo {
-    font-size: 60px;
+    font-size: 85px;
     font-weight: 700;
     letter-spacing: 1px;
     color: #000000;
@@ -60,7 +61,7 @@ html {
     
 }
 
-/* ================= Hero Section ================= */
+
 .hero {
     display: flex;
     align-items: center;
@@ -79,7 +80,7 @@ html {
     color: rgb(225, 255, 0);
 }
 
-/* ปุ่ม */
+
 .btn {
     display: inline-block;
     margin-top: 20px;
@@ -98,7 +99,7 @@ html {
     transform: translateY(-3px);
 }
 
-/* ================= Image Area ================= */
+
 .image-area img {
     width: 450px;
     border-radius: 75%;
@@ -110,7 +111,7 @@ html {
     transform: translateY(-10px);
 }
 
-/* ================= Responsive ================= */
+
 @media (max-width: 768px) {
     .navbar {
         padding: 20px 40px;
@@ -131,7 +132,7 @@ html {
     width: 100%;
     max-width: none;
     margin: 0;
-    padding-left: 80px; /* เท่ากับ hero */
+    padding-left: 80px; 
 }
 
 .about-box {
@@ -185,7 +186,7 @@ html {
     margin-left: 100px;
 }
 
-/* ================= Works ================= */
+/* work */
 
 .works {
     padding: 80px;
@@ -193,13 +194,13 @@ html {
 }
 
 .works h1 {
-    font-size: 48px;
+    font-size: 55px;
     font-weight: 700;
     margin-bottom: 20px;
 }
 
 .works p {
-    font-size: 18px;
+    font-size: 35px;
     color: #ffffff;
     margin-bottom: 50px;
 }
@@ -214,8 +215,7 @@ html {
     background: #0c57c1;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    transition: transform 0.3s;
+    text-align: center;
 }
 
 .work-card:hover {
@@ -223,12 +223,27 @@ html {
 }
 
 .work-card h3 {
-    font-size: 22px;
+    font-size: 55px;
     margin-bottom: 10px;
     color: #fff;
 }
 
 .work-card p {
     color: #e0e0e0;
+}
+.work-card a {
+    display: inline-block;
+    padding: 14px 40px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.work-card a:hover {
+    background: #084bb0;
+    transform: scale(1.05);
 }
 
