@@ -4,6 +4,65 @@
     box-sizing: border-box;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .image-area img {
+        width: 200px;
+        margin-top: 20px;
+    }
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .logo {
+        font-size: 36px;
+        text-align: center;
+    }
+    .about {
+        padding: 40px 20px;
+    }
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-box {
+        max-width: 100%;
+    }
+    .about p {
+        font-size: 16px;
+    }
+    .pic {
+        margin-left: 0;
+    }
+    .works h1 {
+        font-size: 32px;
+    }
+
+    .works p {
+        font-size: 18px;
+    }
+
+    .work-card h3 {
+        font-size: 24px;
+    }
+
+    .work-card a {
+        font-size: 18px;
+        padding: 10px 24px;
+    }
+}
+
 /* bc */
 body {
     background: hsl(213, 96%, 70%);
@@ -245,5 +304,14 @@ html {
 .work-card a:hover {
     background: #084bb0;
     transform: scale(1.05);
+}
+
+.Contact {
+    min-height: 25vh;        /* สูงเต็มหน้าจอ */
+    display: flex;
+    flex-direction: column;  /* เรียงจากบนลงล่าง */
+    justify-content: center; /* จัดกึ่งกลางแนวตั้ง */
+    align-items: center;     /* จัดกึ่งกลางแนวนอน */
+    text-align: center;
 }
 
