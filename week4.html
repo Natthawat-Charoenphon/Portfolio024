@@ -2,38 +2,98 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>My Profile</title>
+    <title>Table Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input {
+            padding: 8px;
+            width: 300px;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
 </head>
 <body>
 
-    
-    <h1>Natthawat Charoenphon</h1>
+    <h2>ตัวกรองตารางข้อมูล</h2>
 
-    
-    <img src="https://images.unsplash.com/photo-1552497076-7c780c431d93?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="รูปโปรไฟล์ของฉัน" width="150">
+    <input type="text" id="searchInput" placeholder="พิมพ์เพื่อค้นหา...">
 
-    
-    <p>
-        สวัสดีครับ ผมเป็นนักศึกษาที่สนใจด้านเทคโนโลยี การเขียนโปรแกรม
-        และการเรียนรู้สิ่งใหม่ ๆ เพื่อพัฒนาตนเอง
-    </p>
+    <table>
+        <thead>
+            <tr>
+                <th>ชื่อ</th>
+                <th>อายุ</th>
+                <th>จังหวัด</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <tr>
+                <td>Somchai</td>
+                <td>22</td>
+                <td>Bangkok</td>
+            </tr>
+            <tr>
+                <td>Arisa</td>
+                <td>25</td>
+                <td>Chiang Mai</td>
+            </tr>
+            <tr>
+                <td>Natthawat</td>
+                <td>21</td>
+                <td>Phuket</td>
+            </tr>
+            <tr>
+                <td>Kanya</td>
+                <td>23</td>
+                <td>Khon Kaen</td>
+            </tr>
+        </tbody>
+    </table>
 
-    
-    <h2>2. ความสนใจ</h2>
-    <ul>
-        <li>ฟังเพลง Classic </li>
-        <li>หาความรู้ทั่วไปจากอินเทอร์เน็ต</li>
-        <li>เล่นเกมที่เป็นภาษาอังกฎษ</li>
-        <li>ดูหนัง</li>
-    </ul>
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const rows = document.querySelectorAll("#tableBody tr");
 
-    
-    <p>
-        เว็บไซต์โปรด:
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-            github
-        </a>
-    </p>
+        searchInput.addEventListener("keyup", function() {
+            const filter = searchInput.value.toLowerCase();
+
+            rows.forEach(function(row) {
+                const cells = row.querySelectorAll("td");
+                let match = false;
+
+                cells.forEach(function(cell) {
+                    if (cell.textContent.toLowerCase().includes(filter)) {
+                        match = true;
+                    }
+                });
+
+                if (match) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

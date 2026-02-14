@@ -1,38 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <title>User Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile First Dashboard</title>
+
+<style>
+/* =====================
+   THEME VARIABLES
+===================== */
+:root {
+    --bg: #f4f6f9;
+    --text: #222;
+    --header: #ffffff;
+    --sidebar: #ffffff;
+    --card: #ffffff;
+    --accent: #4f46e5;
+}
+
+body.dark {
+    --bg: #1e1e2f;
+    --text: #f1f1f1;
+    --header: #2b2b3d;
+    --sidebar: #252538;
+    --card: #2f2f44;
+    --accent: #6366f1;
+}
+
+/* =====================
+   GLOBAL
+===================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background .3s, color .3s;
+}
+
+/* =====================
+   MOBILE-FIRST GRID
+===================== */
+.dashboard {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: 60px 1fr 50px;
+    min-height: 100vh;
+}
+
+/* =====================
+   HEADER
+===================== */
+header {
+    grid-area: header;
+    background: var(--header);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+/* Hamburger */
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    font-size: 26px;
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+/* =====================
+   SIDEBAR (Hidden by default)
+===================== */
+aside {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 220px;
+    height: calc(100% - 60px);
+    background: var(--sidebar);
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+}
+
+/* Toggle sidebar */
+#menu-toggle:checked ~ aside {
+    transform: translateX(0);
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside li {
+    margin-bottom: 15px;
+}
+
+aside a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color .3s;
+}
+
+aside a:hover {
+    color: var(--accent);
+}
+
+/* =====================
+   MAIN
+===================== */
+main {
+    grid-area: main;
+    padding: 20px;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    position: relative;
+    transition: transform .3s, box-shadow .3s;
+}
+
+/* Hover Animation */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+}
+
+/* Tooltip */
+.card::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+    white-space: nowrap;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    grid-area: footer;
+    background: var(--header);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =====================
+   TABLET
+===================== */
+@media (min-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =====================
+   DESKTOP
+===================== */
+@media (min-width: 1024px) {
+    .dashboard {
+        grid-template-columns: 240px 1fr;
+        grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+    }
+
+    aside {
+        position: static;
+        transform: translateX(0);
+        height: auto;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <h1>Natthawat Charoenphon</h1>
+<input type="checkbox" id="menu-toggle">
 
-    <img src="https://images.unsplash.com/photo-1552497076-7c780c431d93?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-         alt="รูปโปรไฟล์ของผู้ใช้"
-         width="150">
+<div class="dashboard">
 
-    
-    <p>
-        ผมเป็นนักศึกษาที่สนใจและชื่นชอบการเรียนรู้สิ่งใหม่ ๆ และพัฒนาทักษะของตนเองอยู่เสมอ
-    </p>
+<header>
+    <label for="menu-toggle" class="menu-icon">☰</label>
+    <h3>Dashboard</h3>
+    <button onclick="toggleTheme()">🌙</button>
+</header>
 
-    
-    <h2>สิ่งที่สนใจ</h2>
+<aside>
     <ul>
-        <li>การเขียนโปรแกรม</li>
-        <li>การออกกำลังกาย</li>
-        <li>การฟังเพลง</li>
-        <li>ดูหนังเก่าๆที่มีปรัชญาแทรกด้วย</li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
     </ul>
-    <p>
-        
-        <a href="https://www.rottentomatoes.com/"
-           target="_blank"
-           rel="noopener noreferrer">
-            Rotten Tomatoes
-        </a>
-    </p>
+</aside>
+
+<main>
+    <div class="cards">
+        <div class="card" data-tooltip="ข้อมูลยอดขายวันนี้">Sales</div>
+        <div class="card" data-tooltip="จำนวนผู้ใช้งาน">Users</div>
+        <div class="card" data-tooltip="รายงานล่าสุด">Reports</div>
+        <div class="card" data-tooltip="ระบบแจ้งเตือน">Alerts</div>
+    </div>
+</main>
+
+<footer>
+    © 2026 Mobile-First Dashboard
+</footer>
+
+</div>
+
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+</script>
 
 </body>
 </html>

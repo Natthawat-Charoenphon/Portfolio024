@@ -2,36 +2,87 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>My Personal Page</title>
+    <title>My Personal Website</title>
 </head>
 <body>
 
-    <h1>Natthawat Charoenphon</h1>
-    
+    <!-- ส่วนหัว -->
+    <header>
+        <h1>Natthawat Charoenphon</h1>
+        <p>นักพัฒนาเว็บมือใหม่ | นักศึกษา</p>
+    </header>
 
-    <p>
-        สวัสดีครับ ผมเป็นนักศึกษาที่สนใจด้านเทคโนโลยี การเขียนโปรแกรม
-        และการเรียนรู้สิ่งใหม่ ๆ เพื่อนำไปพัฒนาตนเอง
-    </p>
+    <!-- เมนูนำทาง -->
+    <nav>
+        <ul>
+            <li><a href="#about">เกี่ยวกับฉัน</a></li>
+            <li><a href="#portfolio">ผลงาน</a></li>
+            <li><a href="#contact">ติดต่อ</a></li>
+        </ul>
+    </nav>
 
-    <img src="https://images.unsplash.com/photo-1552497076-7c780c431d93?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-         alt="รูปโปรไฟล์ของฉัน"
-         width="150">
+    <!-- เนื้อหาหลัก -->
+    <main>
 
-    <h2>ความสนใจและงานอดิเรก</h2>
-    <ul>
-        <li>เขียนโปรแกรม</li>
-        <li>ค้นคว้าความรู้จากอินเทอร์เน็ต</li>
-        <li>ฟังเพลง</li>
-    </ul>
+        <!-- ส่วนเกี่ยวกับฉัน -->
+        <section id="about">
+            <h2>เกี่ยวกับฉัน</h2>
 
-    <p>
-        <a href="https://idle-skilling.fandom.com/wiki/Idle_Skilling_Wiki"
-           target="_blank"
-           rel="noopener noreferrer">
-            Idle_Skilling_Wiki
-        </a>
-    </p>
+            <img src="https://via.placeholder.com/150"
+                 alt="รูปโปรไฟล์ของ Natthawat">
+
+            <p>
+                ผมเป็นนักศึกษาที่สนใจด้านการพัฒนาเว็บไซต์
+                มีความมุ่งมั่นในการเรียนรู้ HTML, CSS และ JavaScript
+                เพื่อพัฒนาทักษะและสร้างผลงานที่สามารถใช้งานได้จริง
+            </p>
+        </section>
+
+        <!-- ส่วนทักษะและความสนใจ -->
+        <section id="skills">
+            <h2>ทักษะและความสนใจ</h2>
+
+            <ul>
+                <li>การพัฒนาเว็บไซต์ด้วย HTML5</li>
+                <li>การออกแบบหน้าเว็บแบบ Responsive</li>
+                <li>การใช้งาน Git และ GitHub</li>
+                <li>สนใจด้าน E-commerce Logistics</li>
+            </ul>
+        </section>
+
+        <!-- ตัวอย่าง Article (ผลงาน) -->
+        <section id="portfolio">
+            <h2>ผลงาน</h2>
+
+            <article>
+                <h3>เว็บไซต์ Portfolio ส่วนตัว</h3>
+                <p>
+                    สร้างเว็บไซต์แนะนำตัวเองโดยใช้ HTML และ CSS
+                    พร้อมระบบ Responsive Design
+                </p>
+            </article>
+        </section>
+
+        <!-- ส่วนติดต่อ -->
+        <section id="contact">
+            <h2>ติดต่อ</h2>
+            <p>Email:
+                <a href="mailto:natthawat.charoenphon@gmail.com">
+                    natthawat.charoenphon@gmail.com
+                </a>
+            </p>
+        </section>
+
+    </main>
+
+    <!-- ส่วนท้าย -->
+    <footer>
+        <p>&copy; 2026 Natthawat Charoenphon</p>
+        <p>
+            <a href="https://github.com/" target="_blank">GitHub</a> |
+            <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+        </p>
+    </footer>
 
 </body>
 </html>
